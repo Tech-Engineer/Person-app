@@ -1,0 +1,47 @@
+<div>
+    <div>---------------------------------------------<b>ADD & UPDATE PERSON DETAILS</b>---------------------------------------------</div><br />
+  <form [formGroup]="personData" novalidate>
+      <div>
+          FirstName: <input type="text" formControlName="first_name"/><br />
+          LastName: <input type="text" formControlName="last_name" /><br />
+          Age: <input type="text" formControlName="age" /><br />
+          Favourite Color: <input type="text" name="color" formControlName="favourite_color" /><br />
+          Hobby: <div *ngFor="let data of favArray">
+                            <input type="checkbox" (change)="changeAction(data.item, $event.target.checked)"> {{data.item}}<br>
+                      </div>
+          <br /><br />
+
+          <button (click)="addPersonDetails()">Add Details</button>        <button (click)="updatePersonDetails()">Update Details</button><br />
+          <h2>{{message1}}</h2>          
+      </div>      
+  </form>
+</div>
+
+<div>
+    <div>-----------------------------------------------<b>DELETE A PERSON DETAIL</b>----------------------------------------------</div>
+    <form [formGroup]="deleteData" novalidate>
+        <div>
+            FirstName: <input type="text" formControlName="first_name"/><br />
+            LastName: <input type="text" formControlName="last_name" /><br /><br />
+
+            <button (click)="deletePersonDetails()">Delete</button><br />
+            <h2>{{message2}}</h2>      
+        </div>
+    </form>
+</div>
+
+<div>
+    <div>-----------------------------------------------<b>PERSON DETAILS</b>----------------------------------------------</div>
+    <form [formGroup]="data" novalidate>
+        <div>
+            FirstName: <input type="text" formControlName="first_name"/><br />
+            LastName: <input type="text" formControlName="last_name" /><br />
+            Age: <input type="text" formControlName="age" /><br />
+            Favourite Color: <input type="text" name="color" formControlName="favourite_color" /><br />
+            Hobby: <div *ngFor="let data of this.data.get('hobby').value; let num = index">
+                            <p *ngIf="data">{{num+1}}   {{data}}</p>
+                        </div>
+        </div>
+    </form>    
+    <div>---------------------------------------------------------------------------------------------------------------------------</div>
+</div>
