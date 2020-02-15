@@ -33,15 +33,13 @@
 <div>
     <div>-----------------------------------------------<b>PERSON DETAILS</b>----------------------------------------------</div>
     <form [formGroup]="data" novalidate>
-        <div>
-            FirstName: <input type="text" formControlName="first_name"/><br />
-            LastName: <input type="text" formControlName="last_name" /><br />
-            Age: <input type="text" formControlName="age" /><br />
-            Favourite Color: <input type="text" name="color" formControlName="favourite_color" /><br />
-            Hobby: <div *ngFor="let data of this.data.get('hobby').value; let num = index">
-                            <p *ngIf="data">{{num+1}}   {{data}}</p>
-                        </div>
-        </div>
+                FirstName: <input type="text" formControlName="first_name"/><br />
+                LastName: <input type="text" formControlName="last_name" /><br />
+                Age: <input type="text" formControlName="age" /><br />
+                Favourite Color: <input type="text" name="color" formControlName="favourite_color" /><br />
+                Hobby: <div *ngFor="let data of this.data.get('hobby').value; let num = index">
+                                <p *ngIf="data">{{num+1}}   {{data}}</p>
+                            </div>
     </form>    
     <div>---------------------------------------------------------------------------------------------------------------------------</div>
 </div>
