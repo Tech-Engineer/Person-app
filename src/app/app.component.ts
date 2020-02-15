@@ -62,7 +62,9 @@ export class AppComponent implements OnInit {
     console.log(this.personData);
     this.http.post(this.url, this.personData.value).subscribe(data => {
       this.message1 = data.toString();
-    });    
+    });
+
+    // this.message1 = 'Details added successfully';
   }
 
   updatePersonDetails() {
@@ -71,6 +73,7 @@ export class AppComponent implements OnInit {
     this.http.put(updatedUrl, this.personData.value).subscribe(data => {
       this.message1 = data.toString();
     });
+    // this.message1 = 'Details updated successfully';
   }
 
   deletePersonDetails() {
@@ -79,6 +82,7 @@ export class AppComponent implements OnInit {
     this.http.delete(updatedUrl, this.deleteData.value).subscribe(data => {
       this.message2 = data.toString();
     });
+    // this.message2 = 'Details deleted successfully.';
   }
 
   changeAction(data, event) {
@@ -90,8 +94,18 @@ export class AppComponent implements OnInit {
   }
 
   displayValues() {
-    this.http.get(this.url).subscribe(response => {
+    /*const personDetails = {
+      first_name: 'Abuzar',
+      last_name: 'Siddiqui',
+      age: 30,
+      favourite_color: 'Blue',
+      hobby: ['Cricket', 'Basketball']
+    };*/
+
+    this.http.get(this.url).subscribe((response: any) => {
       this.data.patchValue(response);
     });
+
+    // this.data.patchValue(personDetails);
   }
 }
